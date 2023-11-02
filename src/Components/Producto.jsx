@@ -4,12 +4,19 @@ import FavImg from './img/corazon.png';
 import NoFavImg from './img/corazonRojo.webp'
 
 
-export default function Producto({producto}) {
+export default function Producto({producto, agregarAFavoritos, eliminarDeFavoritos}) {
 
   const[favorito,setFavorito] = useState(false);
 
   function handleClick(){
-    setFavorito(!favorito)
+   
+    if(favorito){
+      eliminarDeFavoritos(producto)
+      setFavorito(false)
+    }else {
+      agregarAFavoritos(producto)
+      setFavorito(true)
+    }
   }
 
   return (
