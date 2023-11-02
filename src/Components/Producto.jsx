@@ -1,20 +1,30 @@
-import React from 'react'
-import { Link } from 'react-router-dom'
+import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
+import FavImg from './img/corazon.png';
+import NoFavImg from './img/corazonRojo.webp'
 
 
 export default function Producto({producto}) {
+
+  const[favorito,setFavorito] = useState(false);
+
+  function handleClick(){
+    setFavorito(!favorito)
+  }
+
   return (
     <div className='producto'>
-      <Link to = {'/'}><img src = {Producto.image} alt="imagen del producto" /></Link> 
+      <Link to = {'/'}><img src = {producto.image} alt="imagen del producto" /></Link> 
       <div className='info'>
-        <p>{Producto.title}</p>
-        <mark>${Producto.price}</mark>
+        <p>{producto.title}</p>
+        <mark>${producto.price}</mark>
       </div>
-      {/* {favorito ?
-    <img className='Fav-icon' src= {Fav-icon} alt = 'favorito' onClick={handleClick} /> 
-    :
-    <img className='NoFav-icon' src= {NoFav-icon} alt = 'favorito' onClick={handleClick} />
-    } */}
+      {
+      favorito ?
+      <img className = 'favicon' src= {NoFavImg} onClick={handleClick} />
+:
+<img className = 'favicon' src= {FavImg} onClick={handleClick} />
+}
     </div>
   )
 }
