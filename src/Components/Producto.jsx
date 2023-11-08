@@ -21,7 +21,7 @@ export default function Producto({producto, agregarAFavoritos, eliminarDeFavorit
 
   return (
     <div className='producto'>
-      <Link to = {'/'}><img src = {producto.image} alt="imagen del producto" /></Link> 
+      <Link to = {`/producto/${producto.id}`}><img src = {producto.image} alt="imagen del producto" /></Link> 
       <div className='info'>
         <p>{producto.title}</p>
         <mark>${producto.price}</mark>

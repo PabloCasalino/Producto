@@ -1,16 +1,14 @@
-import React from "react";
 import Producto from "./Producto";
 import useProductos from "./hooks/useProductos";
 
 
-export default function Productos({producto, agregarAFavoritos, eliminarDeFavoritos}) {
+export default function Productos({productos, agregarAFavoritos, eliminarDeFavoritos}) {
   
- const  {productos} = useProductos();
 
   return (
     <div className="productos">
     {
-       productos.length > 0 ? productos.map(producto => <Producto key = {producto.id} producto = {producto}/>)
+       productos.length > 0 ? productos.map(producto => <Producto key = {producto.id} producto = {producto} agregarAFavoritos={agregarAFavoritos} eliminarDeFavoritos={eliminarDeFavoritos}/>)
       :
       <p> La lista está vacia</p>
     }
@@ -18,4 +16,4 @@ export default function Productos({producto, agregarAFavoritos, eliminarDeFavori
   );
 }
 
-// agregarAFavoritos={agregarAFavoritos} eliminarDeFavoritos={eliminarDeFavoritos}
+// 

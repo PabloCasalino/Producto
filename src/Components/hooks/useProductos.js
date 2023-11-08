@@ -5,7 +5,7 @@ import { obtenerProducto } from '../servicios/productoService';
 export default function useProductos() {
 
     const [productos, setProductos] = useState([]);
-    const [favoritos, setfavoritos] = useState([])
+    const [favoritos, setFavoritos] = useState([])
 
     useEffect(() => {
         obtenerProducto().then(data => {
@@ -14,14 +14,14 @@ export default function useProductos() {
     }, []);
 
     function agregarAFavoritos(producto) {
-        const newfavoritos = [...favoritos]
-        newfavoritos.push(producto)
-        setfavoritos(newfavoritos)
+        const newFavoritos = [...favoritos]
+        newFavoritos.push(producto)
+        setFavoritos(newFavoritos)
     }
 
     function eliminarDeFavoritos(producto) {
-        const newfavoritos = favoritos.filter(e => e.id !== producto.id)
-        setfavoritos(newfavoritos)
+        const newFavoritos = favoritos.filter(e => e.id !== producto.id)
+        setFavoritos(newFavoritos)
 
     }
     return (
